@@ -54,6 +54,11 @@ BOT.on('message', msg => {
      BOT.commands.get('get').execute(msg, args);
   }
 
+  // Smoke Link Sender
+  if(cmd === 'l'){
+     BOT.commands.get('link').execute(msg, args);
+  }
+  
 // End Of Command Handler
 });
 
