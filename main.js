@@ -59,6 +59,11 @@ BOT.on('message', msg => {
      BOT.commands.get('link').execute(msg, args);
   }
   
+  // Smoke Active Accounts Count
+  if(cmd === 'u'){
+     BOT.commands.get('users').execute(msg, args);
+  }
+  
 // End Of Command Handler
 });
 
