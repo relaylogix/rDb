@@ -8,9 +8,19 @@
 const DISCORD = require('discord.js');
 // Set New Discord Client
 const BOT = new DISCORD.Client();
+// Set Remote Bot Command File Collection
+BOT.commands = new DISCORD.Collection();
 
 // FileSystem library
 const FS = require('fs');
+// Set File System Objects
+const CMDF = fs.readdirSync('./cmd/').filter(file => file.endsWith('.js'));
+
+// Populate Remote Bot Command Files
+for(const file of CMDF) {
+  const command = require(`./cmd/${file}`);
+  BOT.commands.set(command.name, command);
+} 
 
 // Smoke Library
 const SMK = require('@smokenetwork/smoke-js');
@@ -34,7 +44,7 @@ BOT.on('message', msg => {
   if(!msg.content.startswith(PRE) || msg.author.BOT) return;
   
   // Setup Command Variables
-  const args = msg.content.slice(PRE, length).split(/ +/);
+  const args = msg.content.slice(PRE.length).split(/ +/);
   const cmd = args.shift().toLowerCase();
   
   // Start Of Command Interpretation
