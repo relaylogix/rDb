@@ -41,7 +41,7 @@ BOT.on('ready', () => { console.log(`${BOT.user.tag} is online.`); });
 BOT.on('message', msg => {
 // Start Of Command Handler
   // Does The Command Start With The Prefix And Command Not Sent By Bot - Exit On Bad Condition
-  if(!msg.content.startswith(PRE) || msg.author.BOT) return;
+  if(!msg.content.startsWith(PRE) || msg.author.BOT) return;
   
   // Setup Command Variables
   const args = msg.content.slice(PRE.length).split(/ +/);
