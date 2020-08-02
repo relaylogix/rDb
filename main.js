@@ -47,9 +47,11 @@ BOT.on('message', msg => {
   const args = msg.content.slice(PRE.length).split(/ +/);
   const cmd = args.shift().toLowerCase();
   
-  // Start Of Command Interpretation
-  if(cmd === 'ping'){
-     msg.channel.send('Pong');
+  // Start Of Command Interpretation 
+  
+  // Base Command To Check For Connection And Functionality
+  if(cmd === 'get'){
+     BOT.commands.get('get').execute(msg, args);
   }
 
 // End Of Command Handler
