@@ -25,9 +25,6 @@ for(const file of CMDF){
 // Smoke Library
 const SMK = require('@smokenetwork/smoke-js');
 
-// Weather library
-const WTH = require('weather-js');
-
 // Set Global Constants
 
 // Command Prefix To Use
