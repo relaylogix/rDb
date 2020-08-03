@@ -1,5 +1,5 @@
 module.exports = {
-   name: 'GetAcct',
+   name: 'gwc',
    desription: "This is the first command interaction with the smoke-js library.",
    execute(message, args){
    
