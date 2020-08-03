@@ -8,6 +8,7 @@
 ```l = Sends Smoke.io Link To Channel```<br>
 ```u = Sends Current Registered Smoke Network Accounts Count To Channel```<br>
 ```w *Location* = Sends Weather Forecast For Location To Channel```<br>
+```gwc = Get Alltime Registered Witness Count For The Smoke Network``` <-First smoke-js API call!<br>
 
 Node.js Dependancies:(installed with npm)<br>
 ```discord.js``` ```fs``` ```@smokenetwork/smoke-js``` ```weather-js```
