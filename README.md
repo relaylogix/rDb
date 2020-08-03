@@ -1,4 +1,5 @@
 # **rDb**
+### Relay Bot
 ## Bot Developed For Interaction With The Smoke.io Discord Server
 
 ```Command Character:``` ```]```<br>
