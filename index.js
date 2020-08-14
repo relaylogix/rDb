@@ -25,10 +25,14 @@ for(const file of CMDF){
 // Smoke Library
 const SMK = require('@smokenetwork/smoke-js');
 
+// Weather library
+const WTH = require('weather-js');
+
 // Set Global Constants
 
 // Command Prefix To Use
 const PRE = ']';
+
 
 // Bot Connection message
 BOT.on('ready', () => { console.log(`${BOT.user.tag} is online.`); });
@@ -36,12 +40,20 @@ BOT.on('ready', () => { console.log(`${BOT.user.tag} is online.`); });
 // Bot Message Recieve
 BOT.on('message', msg => {
 // Start Of Command Handler
-  // Does The Command Start With The Prefix And Command Not Sent By Bot - Exit On Bad Condition
-  if(!msg.content.startsWith(PRE) || msg.author.BOT) return;
-
   // Setup Command Variables
   const args = msg.content.slice(PRE.length).split(/ +/);
   const cmd = args.shift().toLowerCase();
+
+  if(!msg.author.BOT){
+  // chat scanning code
+  
+  }
+  // Does The Command Start With The Prefix And Command Not Sent By Bot - Exit On Bad Condition
+  if(!msg.content.startsWith(PRE) || msg.author.BOT) return;
+  
+
+  // For Testing Control
+        console.log(`${msg.author} - ${cmd} - ${args}`);
 
   // Start Of Command Interpretation
 
@@ -49,6 +61,11 @@ BOT.on('message', msg => {
   // Base Command To Check For Connection And Functionality
   if(cmd === 'get'){
      BOT.commands.get('get').execute(msg, args);
+  }
+
+  if(cmd === ']]'){
+     // List of commands
+    BOT.commands.get('commands').execute(msg, args);
   }
 
   // Smoke Link Sender
@@ -62,12 +79,19 @@ BOT.on('message', msg => {
   }
 
   if(cmd === 'w'){
-       BOT.commands.get('weather').execute(msg, args);
+     BOT.commands.get('weather').execute(msg, args);
   }
-
+  if(cmd === 'gwc'){
+     BOT.commands.get('gwc').execute(msg, args);
+  }
+  if(cmd === 'gr'){
+     BOT.commands.get('get_reply').execute(msg, args);
+  }
+  if(cmd === 'nu'){
+     BOT.commands.get('new_users').execute(msg, args);
+  }
 
 // End Of Command Handler
 });
 // Initial Bot Logon
-BOT.login('<BotToken>');
-
+BOT.login('<bot-token>');
